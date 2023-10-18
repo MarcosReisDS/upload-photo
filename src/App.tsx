@@ -4,19 +4,20 @@ import './App.scss';
 interface IApp { }
 const App: FC<IApp> = () => {
 
-  const [nada, setNada] = useState<any>()
+  const [image, setImage] = useState<string>("")
 
-const image = (e: any) => {
-  setNada(URL.createObjectURL(e.target.files[0]))
-}
+  const uploadImage = (e: any) => {
+    const images = URL.createObjectURL(e.target.files[0])
+    setImage(images)
+  }
 
   return (
     <div className="App">
       <div>
         <h2>Upload Photo</h2>
-        <img src={nada} />
+        <img src={image} />
         <form method='post'>
-          <input type="file" name="file" id="file" onChange={(e) => image(e) } />
+          <input type="file" name="file" id="file" onChange={(e) => uploadImage(e)} />
           <label htmlFor="file" >Select a file...</label>
         </form>
       </div>
