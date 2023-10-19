@@ -9,7 +9,7 @@ const App: FC<IApp> = () => {
   const [message, setMassage] = useState<string>("")
 
   const uploadImage = (e: any) => {
-    const format = ["png", "jpg", "jpeg", "gif"]
+    const format = ["png", "jpg", "webp", "jpeg", "gif"]
 
     try {
       const file = e.target.files[0]
