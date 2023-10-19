@@ -37,8 +37,6 @@ const App: FC<IApp> = () => {
         setValidate("")
       }, 3000)
     }
-
-
   }
 
   return (

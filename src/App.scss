@@ -18,7 +18,6 @@
         align-items: center;
         gap: 30px;
 
-
         &>h2 {
             color: #fff;
             font-family: sans-serif;
@@ -33,7 +32,6 @@
         }
 
         &>form {
-
             &>input {
                 display: none;
             }
@@ -72,13 +70,11 @@
         &.error {
             background-color: red;
             animation: error 3s ease-in-out;
-
         }
 
         &.sucess {
             background-color: green;
             animation: sucess 3s ease-in-out;
-
         }
     }
 
@@ -113,5 +109,4 @@
             right: -200px;
         }
     }
-
 }
