@@ -5,10 +5,40 @@ interface IApp { }
 const App: FC<IApp> = () => {
 
   const [image, setImage] = useState<string>("")
+  const [validate, setValidate] = useState<string>("")
+  const [message, setMassage] = useState<string>("")
 
   const uploadImage = (e: any) => {
-    const images = URL.createObjectURL(e.target.files[0])
-    setImage(images)
+    const format = ["png", "jpg", "gif"]
+
+    try {
+      const file = e.target.files[0]
+      const filterFile = format.filter((item) => item == file.name.toLowerCase().split(".")[1])
+
+      if (!filterFile[0]) {
+        setValidate("error")
+        setMassage("Insirar uma imagem válida")
+      } else {
+        const images = URL.createObjectURL(file)
+
+        setImage(images)
+        setValidate("sucess")
+        setMassage("Imagem enviada com sucesso!")
+      }
+
+      setTimeout(() => {
+        setValidate("")
+      }, 3000)
+    } catch (error) {
+      setValidate("error")
+      setMassage("Você não enviou nenhuma foto")
+
+      setTimeout(() => {
+        setValidate("")
+      }, 3000)
+    }
+
+
   }
 
   return (
@@ -20,6 +50,9 @@ const App: FC<IApp> = () => {
           <input type="file" name="file" id="file" onChange={(e) => uploadImage(e)} />
           <label htmlFor="file" >Select a file...</label>
         </form>
+      </div>
+      <div className={`message ${validate}`}>
+        <p>{message}</p>
       </div>
     </div>
   )
