@@ -31,7 +31,7 @@ const App: FC<IApp> = () => {
       }, 3000)
     } catch (error) {
       setValidate("error")
-      setMassage("Você não enviou nenhuma foto")
+      setMassage("Você não enviou nenhuma imagem")
 
       setTimeout(() => {
         setValidate("")
