@@ -17,7 +17,7 @@ const App: FC<IApp> = () => {
 
       if (!filterFile[0]) {
         setValidate("error")
-        setMassage("Insirar uma imagem válida")
+        setMassage("Insira uma imagem válida")
       } else {
         const images = URL.createObjectURL(file)
 
